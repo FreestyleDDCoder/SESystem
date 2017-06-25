@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<litepal>
+    <dbname value="SESystem"></dbname>
+    <version value="1"></version>
+    <list>
+        <!--指定映射的模型-->
+        <mapping class="com.helloncu.sesystem.db.User"></mapping>
+        <mapping class="com.helloncu.sesystem.db.Test"></mapping>
+    </list>
+</litepal>
