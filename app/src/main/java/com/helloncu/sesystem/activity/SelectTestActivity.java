@@ -75,16 +75,17 @@ public class SelectTestActivity extends AppCompatActivity {
                 List<Test> testList = DataSupport.findAll(Test.class);
                 ArrayList<Test> newTests = new ArrayList<>();
                 int temp = 100;
-                if (testnumber > testList.size()) {
-                    testnumber = testList.size();
+                int size = testList.size();
+                if (testnumber > size) {
+                    testnumber = size;
                 }
-                //用于每次随机产生的20个题目
+                //用于每次随机产生的testnumber个题目
                 for (int i = 0; i < testnumber; i++) {
-                    int testNumber = (int) (Math.random() * testnumber);
-                    if (temp == testNumber) {
+                    int n = (int) (Math.random() * size);
+                    if (temp == n) {
                         i--;
                     } else {
-                        Test test = testList.get(testNumber);
+                        Test test = testList.get(n);
                         Test test1 = new Test();
                         int answerNumber = (int) (Math.random() * 4);
                         if (answerNumber == 0) {
@@ -117,7 +118,7 @@ public class SelectTestActivity extends AppCompatActivity {
                             test1.setTrueAnswer(test.getTrueAnswer());
                         }
                         newTests.add(test1);
-                        temp = testNumber;
+                        temp = n;
                     }
                 }
                 Log.d("查询的条数", testList.size() + "");
